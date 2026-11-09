@@ -1,0 +1,224 @@
+/* ShopBoard — mobile-first styles.
+   Base rules target small screens; min-width media queries add layout for larger ones. */
+
+:root {
+  --text: #4b4553;
+  --text-h: #08060d;
+  --bg: #fff;
+  --surface: #f7f6fa;
+  --border: #e5e4e7;
+  --accent: #7a1fd1;
+  --accent-text: #fff;
+  --error: #b3261e;
+  --radius: 0.5rem;
+  --space: 1rem;
+  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
+
+  color-scheme: light dark;
+  font: 1rem/1.5 var(--sans);
+  color: var(--text);
+  background: var(--bg);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #c4c7ce;
+    --text-h: #f3f4f6;
+    --bg: #16171d;
+    --surface: #1f2028;
+    --border: #2e303a;
+    --accent: #c084fc;
+    --accent-text: #16171d;
+    --error: #f2b8b5;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--text-h);
+  line-height: 1.2;
+}
+
+a {
+  color: var(--accent);
+}
+
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ---------- Header & nav ---------- */
+
+.site-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: var(--space);
+  border-bottom: 1px solid var(--border);
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--text-h);
+  text-decoration: none;
+}
+
+.nav-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* ---------- Sections ---------- */
+
+main > section {
+  padding: calc(var(--space) * 2) var(--space);
+}
+
+.hero {
+  background: var(--surface);
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 1.75rem;
+  margin-block: 0 0.5rem;
+}
+
+/* ---------- Buttons ---------- */
+
+.button,
+button {
+  display: inline-block;
+  padding: 0.75rem 1.25rem;
+  border: 0;
+  border-radius: var(--radius);
+  background: var(--accent);
+  color: var(--accent-text);
+  font: inherit;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* ---------- Products ---------- */
+
+.product-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space);
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: var(--space);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.product-card h3,
+.product-card p {
+  margin: 0;
+}
+
+.price {
+  font-weight: 700;
+  color: var(--text-h);
+}
+
+.product-card button {
+  margin-top: auto;
+}
+
+/* ---------- Register form ---------- */
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space);
+  max-width: 28rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.field-inline {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+input:not([type='checkbox']) {
+  padding: 0.625rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font: inherit;
+  color: inherit;
+  background: var(--bg);
+}
+
+/* Show the error state only after the user has typed something. */
+input:user-invalid {
+  border-color: var(--error);
+}
+
+small {
+  font-size: 0.875rem;
+}
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+  padding: var(--space);
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+
+/* ---------- Larger screens ---------- */
+
+@media (min-width: 40rem) {
+  .site-header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 64rem) {
+  main > section {
+    padding-inline: calc((100% - 60rem) / 2);
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
