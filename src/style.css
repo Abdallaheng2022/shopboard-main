@@ -12,7 +12,7 @@
   --error: #b3261e;
   --radius: 0.5rem;
   --space: 1rem;
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --sans: system-ui, 'Segoe UI', roboto, sans-serif;
 
   color-scheme: light dark;
   font: 1rem/1.5 var(--sans);
