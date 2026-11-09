@@ -15,4 +15,4 @@
 ## Workflow
 - Keep changes small and focused on one task
 - Do not touch files unrelated to the task
-- Before saying "done", run `npm run dev` (or `npm run build`) and confirm there are no errors
+- Before saying "done", run `npm run check` and `npm run build` and confirm there are no errors
